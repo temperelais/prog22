@@ -6,6 +6,7 @@ class Human:
 
     def birthday(self):
         self.age += 1
+        print(self.name,"tagad ir",self.age,"gadu vecumā")
 
     def namechange(self,newname):
         self.name=newname
@@ -16,19 +17,24 @@ class Human:
         else:
             print("esmu",self.age,"gadus veca")
         print("Mani sauc",self.name)
-    def genderchange(self,newg):
-        self.gender=newg
+    def genderchange(self,gender=""):
+        if gender=="":
+            if self.gender == "male":
+                self.gender =="female"
+                print("dzimums nomainīts uz female")
+            else:
+                self.gender =="male"
+                print("dzimums nomainīts uz male")
 
-person = Human("sdjsdjiw",3,"male")
 
-print(person.name)
-print(person.gender)
-print(person.age)
 
-person.birthday()
+class Woman(Human):
+    def __init__(self, name, age, gender,hair_color):
+        super().__init__(name, age=0, gender="female")
+        self.hair_color = hair_color
+        self.intro()
 
-print(person.age)
-
-person.namechange("yeajkls")
-
+pirmais=Woman("Annabela","","","green")
+print(pirmais.gender,pirmais.hair_color)
+pirmais.intro()
 
