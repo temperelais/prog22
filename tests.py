@@ -29,9 +29,6 @@ person.birthday()
 
 print(person.age)
 
-
-
 person.namechange("yeajkls")
 
-person
 
