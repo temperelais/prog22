@@ -34,7 +34,4 @@ class Woman(Human):
         self.hair_color = hair_color
         self.intro()
 
-pirmais=Woman("Annabela","","","green")
-print(pirmais.gender,pirmais.hair_color)
-pirmais.intro()
 
