@@ -12,10 +12,10 @@ root.geometry('300x300')
 root.resizable(False, False)
 
 
-def fahrenheit_to_celsius(f):
-    """ Convert fahrenheit to celsius
-    """
-    return (f - 32) * 5/9
+# def fahrenheit_to_celsius(f):
+#     """ Convert fahrenheit to celsius
+#     """
+#     return (f - 32) * 5/9
 
 
 # frame
@@ -64,6 +64,7 @@ def razot_button_clicked():
     cilveku_dzimums = dzimums.get()
     cilveku_vecums = vecums.get()
     visi_cilveki.append(Human(cilveku_vards,cilveku_vecums,cilveku_dzimums))
+    result_label.config(text=(cilveku_vards, cilveku_dzimums,cilveku_vecums))
 
 
 razot_button = ttk.Button(frame, text="Veidot")
