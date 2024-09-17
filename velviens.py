@@ -3,7 +3,7 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter.messagebox import showerror
 
-cilve
+visi_cilveki = []
 
 # root window
 root = tk.Tk()
@@ -41,7 +41,8 @@ vards_label.grid(column=0, row=0, sticky="W",**options)
 dzimums_label = ttk.Label(frame, text="dzimums")
 dzimums_label.grid(column=0,row=1, sticky="W",**options)
 # vecums label
-
+vecums_label = ttk.Label(frame, text="vecums")
+vecums_label.grid(column=0,row=2, sticky="W",**options)
 # vards entry
 vards = tk.StringVar()
 vards_entry = ttk.Entry(frame,textvariable=vards)
@@ -65,6 +66,14 @@ def razot_button_clicked():
     visi_cilveki.append(Human(cilveku_vards,cilveku_vecums,cilveku_dzimums))
 
 
+razot_button = ttk.Button(frame, text="Veidot")
+razot_button.grid(column=3, row=0, sticky="W",**options)
+razot_button.configure(command=razot_button_clicked)
+
+# button label
+result_label = ttk.Label(frame)
+result_label.grid(row=3, columnspan=3, **options)
+
 # convert button
 
 
@@ -86,8 +95,8 @@ def razot_button_clicked():
 # convert_button.configure(command=convert_button_clicked)
 
 # result label
-result_label = ttk.Label(frame)
-result_label.grid(row=2, columnspan=3, **options)
+#result_label = ttk.Label(frame)
+#result_label.grid(row=3, columnspan=3, **options)
 
 # add padding to the frame and show it
 frame.grid(padx=10, pady=10)
