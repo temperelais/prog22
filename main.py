@@ -1,6 +1,6 @@
 from cilveks import Cilveks, Sieviete
-import tkinter as tk
-from tkinter import ttk
+import tkinter as tk 
+from tkinter import ttk, END
 
 #cilvēku saraksts
 
@@ -41,12 +41,34 @@ dzimums = tk.StringVar()
 dzimums_entry = ttk.Entry(frame, textvariable=dzimums)
 dzimums_entry.grid(column=1, row=1, **options)
 
+#listbox deleting
+# ražošana button
+def nomainit_sarakstu():
+    listbox.delete(0, END)
+    for cilveks in visi_cilveki:
+            listbox.insert("end","{}{}{}".format(cilveks.vards,cilveks.dzimums,cilveks.vecums))
+
+
+
 #vecums entry
 vecums = tk.IntVar()
 vecums_entry = ttk.Entry(frame, textvariable=vecums)
 vecums_entry.grid(column=1, row=2, **options)
 
-# ražošana button
+
+
+# listbox
+saturs = tk.Variable(value=tuple(visi_cilveki))
+
+listbox = tk.Listbox(
+    root,
+    listvariable=saturs,
+    height=6,
+    selectmode=tk.EXTENDED
+)
+
+listbox.grid(row=4,columnspan=3, **options)
+
 
 def razot_button_clicked():
     cilveka_vards = vards.get()
@@ -54,12 +76,15 @@ def razot_button_clicked():
     cilveka_vecums = vecums.get()
     visi_cilveki.append(Cilveks(cilveka_vards,cilveka_dzimums,cilveka_vecums))
     result_label.config(text=visi_cilveki[-1].info())
+    nomainit_sarakstu()
+    # listbox.insert("end","{}{}{}".format(cilveka_vards,cilveka_dzimums,cilveka_vecums))
 
 
 
 razot_button = ttk.Button(frame, text='Ražot')
 razot_button.grid(column=2, row=0, sticky='W', **options)
 razot_button.configure(command=razot_button_clicked)
+
 
 
 # result label
