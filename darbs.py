@@ -1,11 +1,14 @@
-from tests import Human, Woman
+from cilveks import Sieviete, Cilveks
 
-human_list = []
+cilveku_saraksts = []
 
 for i in range(20):
-    human_list.append(Human("Hugo",i,"male"))
+    cilveku_saraksts.append(Sieviete("Anna","blonda", i))
 
-for Human in human_list:
-    if Human.age % 2 == 0:
-        Human.genderchange()
-    Human.intro()
+for sieviete in cilveku_saraksts:
+    if sieviete.vecums % 2 == 0:
+        sieviete.mainit_dzimumu()
+
+print ("-------------------")
+for sieviete in cilveku_saraksts:
+    sieviete.info()
