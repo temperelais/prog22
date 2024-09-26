@@ -79,11 +79,25 @@ def razot_button_clicked():
     nomainit_sarakstu()
     # listbox.insert("end","{}{}{}".format(cilveka_vards,cilveka_dzimums,cilveka_vecums))
 
+# dzimene
 
+dzimene_button = ttk.Button(frame, text="dzimšanas diena")
+dzimene_button.grid(column=4, row=2, sticky="W", **options)
+dzimene_button.configure(command=razot_button_clicked)
 
 razot_button = ttk.Button(frame, text='Ražot')
 razot_button.grid(column=2, row=0, sticky='W', **options)
 razot_button.configure(command=razot_button_clicked)
+
+def dzimsanas_diena():
+    jaunais_teksts = ""
+    for izveletais in listbox.curselection():
+        visi_cilveki[izveletais].svinet_dz_d()
+        jaunais_teksts += visi_cilveki[izveletais].info() + "\n"
+    result_label.config(text=jaunais_teksts)
+    
+
+
 
 
 
